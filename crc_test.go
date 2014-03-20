@@ -16,7 +16,6 @@ func gocrc(data []byte) (out [4]byte) {
 }
 
 func TestCRCAgainstStdlib(t *testing.T) {
-	fmt.Printf("%d\n", InitialCRC)
 	for i := 0; i < 64; i++ {
 		buf := make([]byte, 65536+i)
 		_, err := rand.Read(buf)
