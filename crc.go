@@ -23,7 +23,7 @@ import (
 func crc_internal(crc uint32, data uintptr, length int32, out *uint32)
 
 const (
-	InitialCRC = 0
+	InitialCRC uint32 = 0
 )
 
 // Calculates/updates a CRC from a byte array.
