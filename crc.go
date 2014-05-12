@@ -1,5 +1,3 @@
-// Copyright (C) 2013 Space Monkey, Inc.
-
 /*
 Package crc is a much faster implementation of the standard CRC polynomial.
 Instead of operating on each byte like the stdlib version does, this version
