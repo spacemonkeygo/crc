@@ -3,4 +3,4 @@ crc
 
 Fast CRC implementations
 
-Please see http://godoc.org/github.com/SpaceMonkeyGo/crc for info
+Please see http://godoc.org/github.com/spacemonkeygo/crc for info
