@@ -14,8 +14,8 @@ func gocrc(data []byte) (out [4]byte) {
 }
 
 func TestCRCAgainstStdlib(t *testing.T) {
-	for i := 0; i < 64; i++ {
-		for j := 0; j < 64; j++ {
+	for i := 0; i < 128; i++ {
+		for j := 0; j < 128; j++ {
 			buf := make([]byte, 4096+i)
 			_, err := rand.Read(buf)
 			if err != nil {
@@ -45,7 +45,7 @@ func TestCRC(t *testing.T) {
 	}
 }
 
-func BenchmarkCRC_C(b *testing.B) {
+func BenchmarkCRC_Zlib(b *testing.B) {
 	buf := make([]byte, 65536)
 	_, err := rand.Read(buf)
 	if err != nil {
@@ -58,7 +58,7 @@ func BenchmarkCRC_C(b *testing.B) {
 	}
 }
 
-func BenchmarkCRC_Go(b *testing.B) {
+func BenchmarkCRC_Stdlib(b *testing.B) {
 	buf := make([]byte, 65536)
 	_, err := rand.Read(buf)
 	if err != nil {
