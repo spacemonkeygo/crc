@@ -40,8 +40,8 @@ operates on each word.
 The main logic of this code was taking from zlib.
 
 On my crappy laptop I get:
-  BenchmarkCRC_Zlib    10000	    121849 ns/op	 537.84 MB/s
-  BenchmarkCRC_Stdlib   5000	    317655 ns/op	 206.31 MB/s
+  BenchmarkCRC_Zlib	   20000	     86888 ns/op	 754.25 MB/s
+  BenchmarkCRC_Stdlib	   10000	    231376 ns/op	 283.24 MB/s
 
 The difference is much more pronounced on ARM devices.
 */
