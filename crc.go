@@ -148,6 +148,9 @@ func crc32_little(crc uint32, data []uint8) uint32 {
 }
 
 func crc32_big(crc uint32, data []uint8) uint32 {
+	panic("This code is probably fine, but simply untested, due to lack of " +
+		"current big-endian Go build targets. Once this code is tested on a " +
+		"big-endian architecture, please remove this panic.")
 	c := ^((((crc) >> 24) & 0xff) + (((crc) >> 8) & 0xff00) +
 		(((crc) & 0xff00) << 8) + (((crc) & 0xff) << 24))
 	buf := &data[0]
