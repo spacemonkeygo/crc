@@ -15,13 +15,17 @@ func gocrc(data []byte) (out [4]byte) {
 
 func TestCRCAgainstStdlib(t *testing.T) {
 	for i := 0; i < 128; i++ {
-		for j := 0; j < 128; j++ {
-			buf := make([]byte, 4096+i)
-			_, err := rand.Read(buf)
-			if err != nil {
-				t.Fatal(err)
+		buf := make([]byte, 1024+i)
+		_, err := rand.Read(buf)
+		if err != nil {
+			t.Fatal(err)
+		}
+		for j := 0; j <= len(buf); j++ {
+			crc1 := CRC(InitialCRC, buf[:j])
+			if crc1 != crc32.Update(0, crc32.IEEETable, buf[:j]) {
+				t.Fatal("crc doesn't match")
 			}
-			if CRCToBytes(CRC(InitialCRC, buf[j:])) != gocrc(buf[j:]) {
+			if CRC(crc1, buf[j:]) != crc32.Update(crc1, crc32.IEEETable, buf[j:]) {
 				t.Fatal("crc doesn't match")
 			}
 		}

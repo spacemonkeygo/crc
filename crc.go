@@ -70,7 +70,7 @@ func CRCFromBytes(data []byte) uint32 {
 // Calculates/updates a CRC from a byte array.
 func CRC(crc uint32, buf []uint8) uint32 {
 	if len(buf) == 0 {
-		return 0
+		return crc
 	}
 	endian := uint32(1)
 	if (*((*uint8)(unsafe.Pointer(&endian)))) > 0 {
